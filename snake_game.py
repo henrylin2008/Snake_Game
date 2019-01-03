@@ -104,6 +104,15 @@ while True:
 		#clear the segments list
 		segments.clear()
 
+		#Reset the score
+		score = 0 
+
+		#reset the delay
+		delay = 0.1
+		pen.clear()
+		pen.write("Score: {} High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+
+
 	if head.distance(food) < 20: 
 		#move the food to a random spot
 		x = random.randint(-290, 290)
@@ -117,6 +126,9 @@ while True:
 		new_segment.color("grey")
 		new_segment.penup()
 		segments.append(new_segment)
+
+		#shorten the delay
+		delay -= 0.001 
 
 		# Increase the score
 		score += 10 
@@ -154,6 +166,16 @@ while True:
 
 			#clear the segments list
 			segments.clear()
+
+			#reset the score
+			score = 0 
+
+			#reset the delay 
+			delay = 0.1 
+
+			#update the score display 
+			pen.clear()
+			pen.write("Score: {} High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
 
 	time.sleep(delay)
